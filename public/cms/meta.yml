@@ -12,7 +12,7 @@ fediverseCreator: ""
 author:
   name: Walid Zitouni
   shortName: Daryx
-  image: null
+  image: /avatar.png
   bio: Security researcher and CTF enthusiast.
   shortBio: CTF player & security researcher.
   socials:
