@@ -1,8 +1,10 @@
 ---
 title: Hello World
+slug: hello-world
 date: 2026-03-31
-excerpt: First post.
+excerpt: First post on my new blog.
+categories: [blog]
 tags: [ctf]
 ---
 
-Hello World!
+Hello World! More writeups coming soon.
