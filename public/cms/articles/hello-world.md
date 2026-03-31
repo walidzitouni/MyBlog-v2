@@ -1,10 +1,10 @@
 ---
 title: Hello World
 slug: hello-world
-date: 2026-03-31
 excerpt: First post on my new blog.
-categories: [blog]
-tags: [ctf]
+categories:
+  - Blog
+date: 2026-03-31
 ---
 
-Hello World! More writeups coming soon.
+Hello World! CTF writeups coming soon.
