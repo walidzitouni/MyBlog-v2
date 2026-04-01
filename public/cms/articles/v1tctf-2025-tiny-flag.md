@@ -1,35 +1,52 @@
 ---
 title: "Tiny Flag"
 slug: v1tctf-2025-tiny-flag
-excerpt: "V1TCTF 2025 — challenge with a small but tricky flag extraction puzzle"
+excerpt: "Flag hidden in favicon pixel art steganography"
+coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800"
+coverImageAlt: "Tiny Flag - V1t CTF 2025 writeup"
 categories:
-  - V1TCTF 2025
-  - Misc
-date: 2025-08-01
+  - V1t CTF 2025
+  - Web
+  - Steganography
+date: 2025-01-10
 ---
 
-## Challenge Overview
+## Overview
 
-**CTF:** V1TCTF 2025  
-**Category:** Misc  
-**Difficulty:** Medium
+The page is full of decorative elements (moving dots, scanlines, etc.), which are red herrings. The title and hint suggest the flag is "tiny" and right "in front of your eyes." The trick is that the flag is drawn inside the page's **favicon**.
 
-## Description
+## Solution Steps
 
-V1TCTF 2025 — challenge with a small but tricky flag extraction puzzle
+1. Open the site and inspect the page head (View Source or DevTools -> Elements).
+2. Notice the favicon reference:
 
-## Solution
+```html
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+```
 
-### Reconnaissance
+3. Open `favicon.ico` directly in a new tab (DevTools -> Network -> click the icon request).
+4. Zoom way in (800-1600%) to see the pixel art text clearly.
 
-Initial enumeration of the target application revealed the attack surface.
+### Alternative: Extract and Upscale Locally
 
-### Exploitation
+```bash
+# Download the favicon
+curl -O https://target-site/favicon.ico
 
-After identifying the vulnerability, the exploit was crafted and executed to retrieve the flag.
+# Convert and upscale with nearest-neighbor to keep pixels crisp
+# Requires ImageMagick
+convert favicon.ico -filter point -resize 1600% out.png
 
-### Flag
+# Open out.png to read the flag
+```
+
+## Pitfalls
+
+- Don't over-focus on hidden CSS pixels or JS effects; they're decoys.
+- The entire solve is recognizing the favicon and zooming in.
+
+## Flag
 
 ```
-{flag}
+v1t{T1NY_ICO}
 ```

@@ -9,6 +9,7 @@
   import ThemeToggle from '@components/molecules/ThemeToggle';
   import HomeIcon from '@assets/icons/home.svelte';
   import TimelineIcon from '@assets/icons/timeline.svelte';
+  import InfoIcon from '@assets/icons/info.svelte';
   import { PostType } from '@schemas/post-types';
 
   let {
@@ -72,10 +73,12 @@
       color: PostType.PHOTOGRAPHY,
     },
     { label: 'RSS', href: '/rss.xml', icon: rssIconSnippet, title: 'Subscribe to my RSS Feed', color: 'generic' },
+    { label: 'About', href: '/about', icon: aboutIconSnippet, active: pathname === '/about', color: 'generic' },
   ]);
 </script>
 
 {#snippet rssIconSnippet()}<Rss size="20px" />{/snippet}
+{#snippet aboutIconSnippet()}<InfoIcon size="20px" />{/snippet}
 {#snippet postIconSnippet()}<PostIcon size="20px" />{/snippet}
 {#snippet quickReviewIconSnippet()}<QuickReviewIcon size="20px" />{/snippet}
 {#snippet coolLinkIconSnippet()}<CoolLinkIcon size="20px" />{/snippet}

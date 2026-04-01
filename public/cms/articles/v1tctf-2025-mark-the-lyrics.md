@@ -1,36 +1,63 @@
 ---
-title: "Mark the Lyrics"
+title: "Mark The Lyrics"
 slug: v1tctf-2025-mark-the-lyrics
-excerpt: "V1TCTF 2025 — steganography or forensics challenge hiding a flag within music lyrics or audio"
+excerpt: "Flag hidden in HTML mark tags within song lyrics"
+coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800"
+coverImageAlt: "Mark The Lyrics - V1t CTF 2025 writeup"
 categories:
-  - V1TCTF 2025
-  - Forensics
-  - Steganography
-date: 2025-08-01
+  - V1t CTF 2025
+  - Web
+  - HTML
+date: 2025-01-10
 ---
 
-## Challenge Overview
+## Overview
 
-**CTF:** V1TCTF 2025  
-**Category:** Forensics, Steganography  
-**Difficulty:** Medium
+The page shows well-formatted Vietnamese rap lyrics (Verse, Pre-Chorus, Chorus, Outro). The prompt hints that something is "odd" about the lyrics. Viewing the HTML reveals certain fragments wrapped in `<mark>...</mark>` elements. Those marked fragments, read in order, form the flag.
 
-## Description
+## Manual Extraction
 
-V1TCTF 2025 — steganography or forensics challenge hiding a flag within music lyrics or audio
+Reading each `<mark>` in document order yields:
 
-## Solution
+1. `V`
+2. `1`
+3. `T` (from "M-TP", the letter T is marked)
+4. `{`
+5. `MCK`
+6. `pap-`
+7. `cool`
+8. `ooh-`
+9. `yeah`
+10. `}`
 
-### Reconnaissance
+## Browser Console One-liner
 
-Initial enumeration of the target application revealed the attack surface.
+```javascript
+Array.from(document.querySelectorAll('mark'))
+  .map(m => m.textContent)
+  .join('');
+// => "V1T{MCK-pap-cool-ooh-yeah}"
+```
 
-### Exploitation
+## Python Script
 
-After identifying the vulnerability, the exploit was crafted and executed to retrieve the flag.
+```python
+#!/usr/bin/env python3
+import re, pathlib
 
-### Flag
+html = pathlib.Path('index.html').read_text(encoding='utf-8')
+marks = re.findall(r'<mark>([^<]+)</mark>', html)
+
+print("MARK THE LYRICS - FLAG EXTRACTOR")
+for i, m in enumerate(marks, 1):
+    print(f"{i}. {m}")
+
+flag = ''.join(marks)
+print("\nCombined:", flag)
+```
+
+## Flag
 
 ```
-{flag}
+V1T{MCK-pap-cool-ooh-yeah}
 ```
