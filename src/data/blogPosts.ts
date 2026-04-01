@@ -63,6 +63,22 @@ export function sanitizeBlogPostData(post: BlogPost, postBody?: string, rendered
     }
   }
 
+  if (!post.coverImage && !isCoolLinksPost) {
+    // Generate a unique cover image for each post based on slug
+    const coverImages = [
+      'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop', // matrix code
+      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=400&fit=crop', // cybersecurity
+      'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop', // servers
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop', // code screen
+      'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800&h=400&fit=crop', // hacker
+      'https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=800&h=400&fit=crop', // neon tech
+      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=400&fit=crop', // code laptop
+      'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&h=400&fit=crop', // network
+    ];
+    const slugHash = post.slug ? post.slug.split('').reduce((acc: number, char: string) => acc + char.charCodeAt(0), 0) : 0;
+    post.coverImage = coverImages[slugHash % coverImages.length];
+  }
+
   if (post.showToc && renderedPost?.metadata?.headings) {
     post.toc = (renderedPost.metadata.headings as any[]).map((heading: any) => {
       // If isCoolLinksPost, only consider h2s
