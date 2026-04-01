@@ -15,9 +15,10 @@ export default defineConfig({
   devToolbar: { enabled: false },
 
   markdown: {
-    syntaxHighlight: 'shiki',
-    shikiConfig: {
-      theme: 'github-dark',
+    syntaxHighlight: 'prism',
+    prism: {
+      languages: ['python', 'javascript', 'typescript', 'bash', 'json', 'markdown', 'html', 'css', 'sql', 'yaml'],
+      additionalLanguages: ['python'],
     },
   },
 
