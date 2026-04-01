@@ -14,11 +14,22 @@ export default defineConfig({
   integrations: [svelte(), sitemap(), sitemapNoindexFilter()],
   devToolbar: { enabled: false },
 
-  // AJOUT DE LA CONFIGURATION MARKDOWN POUR PRISM
+  // CONFIGURATION AVEC SHIKI (RECOMMANDÉ)
   markdown: {
-    syntaxHighlight: 'prism',
-    prism: {
-      additionalLanguages: ['python'],
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'github-dark',  // Vous pouvez changer le thème
+      // Shiki supporte Python et beaucoup d'autres langages nativement
+      langs: [
+        'python',
+        'javascript',
+        'typescript',
+        'bash',
+        'json',
+        'markdown',
+        'html',
+        'css'
+      ],
     },
   },
 
