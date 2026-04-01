@@ -4,12 +4,8 @@ import svelte from '@astrojs/svelte';
 import yaml from '@modyfi/vite-plugin-yaml';
 import vercel from '@astrojs/vercel';
 import sitemap from '@astrojs/sitemap';
-import sitemapNoindexFilter from './integrations/sitemap-noindex-filter.mjs';
 
-// Prism language imports
-// NOTE: markup-templating MUST come before php, erb, twig, etc.
 import 'prismjs/components/prism-markup-templating';
-
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-shell-session';
@@ -44,7 +40,7 @@ import 'prismjs/components/prism-nasm';
 
 export default defineConfig({
   site: "https://fantinel.dev",
-  integrations: [svelte(), sitemap(), sitemapNoindexFilter()],
+  integrations: [svelte(), sitemap()], // <-- removed sitemapNoindexFilter
   devToolbar: { enabled: false },
   markdown: {
     syntaxHighlight: 'prism',
