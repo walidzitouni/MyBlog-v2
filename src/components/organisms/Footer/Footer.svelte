@@ -26,7 +26,7 @@
 
     <div class="o-footer__container u-container">
       <div class="o-footer__copyright">
-        © {currentYear} Matheus Fantinel
+        © {currentYear} Walid Zitouni
       </div>
       <div class="o-footer__links">
         {#if socials}
@@ -62,33 +62,6 @@
         </div>
       </div> -->
       <div class="o-footer__badges">
-        <div class="o-footer__badge">
-          <img src="/badges/MadeInBrazil.svg" alt="Made in Brazil" />
-        </div>
-
-        <div class="o-footer__badge">
-          <img src="/badges/NowInItaly.svg" alt="Now in Italy" />
-        </div>
-
-        <!-- <div class="o-footer__badge">
-          <img src="/badges/CoffeePowered.svg" alt="Coffee Powered" />
-        </div> -->
-
-        <div class="o-footer__badge">
-          <img src="/badges/MadeByAHuman.svg" alt="Made by a human" />
-        </div>
-
-        <div class="o-footer__badge">
-          <img src="/badges/PoweredByAutism.svg" alt="Powered by autism" />
-        </div>
-
-        <!-- <div class="o-footer__badge">
-          <img src="/badges/RssIsAwesome.svg" alt="RSS is awesome" />
-        </div> -->
-
-        <div class="o-footer__badge">
-          <img src="/badges/TransRights.svg" alt="Trans Rights are Human Rights" />
-        </div>
       </div>
     </div>
   </div>
@@ -170,8 +143,8 @@
       justify-content: center;
 
       #wcb.carbonbadge {
-        --b2: var(--color--teal);
-        --b1: var(--color--teal-contrast);
+        --b2: var(--color--red);
+        --b1: var(--color--red-contrast);
 
         :global(#wcb_g) {
           background: var(--theme--background-base-color);

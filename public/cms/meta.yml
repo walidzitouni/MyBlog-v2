@@ -1,18 +1,18 @@
 baseUrl: https://myblog-v2.vercel.app
 title: Daryx
-image: /avatar.png
+image: https://github.com/walidzitouni.png
 description: Security researcher and CTF enthusiast.
 keywords:
   - ctf
   - security
   - writeups
-lightThemeColor: "#ffffff"
-darkThemeColor: "#1a1a1a"
+lightThemeColor: "#f5f5f5"
+darkThemeColor: "#0a0a0a"
 fediverseCreator: ""
 author:
   name: Walid Zitouni
   shortName: Daryx
-  image: /avatar.png
+  image: https://github.com/walidzitouni.png
   bio: Security researcher and CTF enthusiast.
   shortBio: CTF player & security researcher.
   socials:
