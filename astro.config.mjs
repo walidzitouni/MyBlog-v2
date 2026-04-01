@@ -7,6 +7,9 @@ import sitemap from '@astrojs/sitemap';
 import sitemapNoindexFilter from './integrations/sitemap-noindex-filter.mjs';
 
 // Prism language imports
+// NOTE: markup-templating MUST come before php, erb, twig, etc.
+import 'prismjs/components/prism-markup-templating';
+
 import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-shell-session';
@@ -26,7 +29,6 @@ import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';
 import 'prismjs/components/prism-powershell';
 import 'prismjs/components/prism-http';
-import 'prismjs/components/prism-xml-doc';
 import 'prismjs/components/prism-regex';
 import 'prismjs/components/prism-diff';
 import 'prismjs/components/prism-toml';
