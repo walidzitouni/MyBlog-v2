@@ -1,0 +1,20 @@
+---
+import { sanitizeBlogPostData } from '@data/blogPosts';
+import PostLayout from '@layouts/PostLayout.astro';
+import { getCollection } from 'astro:content';
+import type { BlogPost } from '@schemas/blog';
+
+const posts = await getCollection('blog');
+const entry = posts.find((p) => p.data.slug === 'about');
+
+if (!entry) {
+  return new Response(null, { status: 404 });
+}
+
+const post = {
+  data: sanitizeBlogPostData(entry.data as unknown as BlogPost, entry.body, entry.rendered, posts.map(p => p.data as unknown as BlogPost)),
+  body: entry.body,
+};
+---
+
+<PostLayout post={{ body: post.body, data: post.data }} />

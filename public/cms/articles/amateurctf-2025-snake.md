@@ -1,36 +1,63 @@
 ---
 title: "Snake"
 slug: amateurctf-2025-snake
-excerpt: "AmateurCTF 2025 challenge involving Snake game exploitation"
+excerpt: "Authentication bypass via backslash injection"
+coverImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800"
+coverImageAlt: "Snake - AmateursCTF 2025 CTF writeup"
 categories:
-  - AmateurCTF 2025
-  - Web
-  - JavaScript
-date: 2025-07-01
+  - AmateursCTF 2025
+  - Misc
+  - Injection
+date: 2025-01-22
 ---
 
-## Challenge Overview
+> lets play some snake
 
-**CTF:** AmateurCTF 2025  
-**Category:** Web, JavaScript  
-**Difficulty:** Medium
+**309 pts / 20 solves**
 
-## Description
+## Step 1: Connect
 
-AmateurCTF 2025 challenge involving Snake game exploitation
+```bash
+nc amt.rs 34411
+```
 
-## Solution
+## Step 2: Register an Account
 
-### Reconnaissance
+1. When prompted, type `register` and press Enter.
+2. The system will give you a UID (e.g., `9457385429662`). **Copy this number.**
+3. For the Password, type `pass` and press Enter.
 
-Initial enumeration of the target application revealed the attack surface.
+You are now logged in as a normal user. We need to log out first to perform the injection.
 
-### Exploitation
+## Step 3: Log Out
 
-After identifying the vulnerability, the exploit was crafted and executed to retrieve the flag.
+1. Type `settings` and press Enter.
+2. Type `logout` and press Enter.
 
-### Flag
+## Step 4: Malicious Login (The Injection)
+
+This is the critical part. We use the backslash `\` to trick the system into accepting spaces in the UID variable.
+
+1. Type `login` and press Enter.
+2. **At the `UID:` prompt, do exactly this:**
+   - Type your UID followed by a space and a backslash: `[YOUR_UID] \`
+   - Press Enter.
+   - Type this exact payload: `pass data/d;1d;data/#`
+   - Press Enter.
+
+### Example Input
 
 ```
-{flag}
+UID: 9457385429662 \
+pass data/d;1d;data/#
+```
+
+## Result
+
+The injection bypasses the authentication and reveals the flag!
+
+## Flag
+
+```
+amateursCTF{y0u_ar3_th3_r3al_w1nn3r_0f_sn4k3}
 ```
