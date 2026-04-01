@@ -14,24 +14,10 @@ export default defineConfig({
   integrations: [svelte(), sitemap(), sitemapNoindexFilter()],
   devToolbar: { enabled: false },
 
-  // UTILISER SHIKI AU LIEU DE PRISM
   markdown: {
-    syntaxHighlight: 'shiki',
+    syntaxHighlight: 'shiki',  // <-- IMPORTANT: shiki, PAS prism
     shikiConfig: {
       theme: 'github-dark',
-      // Shiki supporte Python et tous les langages nativement
-      langs: [
-        'python',
-        'javascript',
-        'typescript',
-        'bash',
-        'json',
-        'markdown',
-        'html',
-        'css',
-        'sql',
-        'yaml'
-      ],
     },
   },
 
