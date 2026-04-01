@@ -14,6 +14,14 @@ export default defineConfig({
   integrations: [svelte(), sitemap(), sitemapNoindexFilter()],
   devToolbar: { enabled: false },
 
+  // AJOUT DE LA CONFIGURATION MARKDOWN POUR PRISM
+  markdown: {
+    syntaxHighlight: 'prism',
+    prism: {
+      additionalLanguages: ['python'],
+    },
+  },
+
   vite: {
     plugins: [yaml()]
   },
