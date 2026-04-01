@@ -14,7 +14,6 @@ export default defineConfig({
   integrations: [svelte(), sitemap(), sitemapNoindexFilter()],
   devToolbar: { enabled: false },
 
-  // UTILISER SHIKI AU LIEU DE PRISM - SHIKI SUPPORTE PYTHON NATIVEMENT
   markdown: {
     syntaxHighlight: 'shiki',
     shikiConfig: {
