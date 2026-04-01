@@ -8,7 +8,7 @@ const posts = await getCollection('blog');
 const entry = posts.find((p) => p.data.slug === 'about');
 
 if (!entry) {
-  return Astro.redirect('/404');
+  return new Response(null, { status: 404 });
 }
 
 const post = {
