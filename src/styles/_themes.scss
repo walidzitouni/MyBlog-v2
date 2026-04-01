@@ -32,11 +32,11 @@
   @include mixins.define-color('gray-300', #7f849c);
   @include mixins.define-color('gray-400', #6c7086);
   @include mixins.define-color('gray-500', #585b70);
-  @include mixins.define-color('gray-600', #45475a);
-  @include mixins.define-color('gray-700', #313244);
-  @include mixins.define-color('gray-800', #1e1e2e);
-  @include mixins.define-color('gray-900', #181825);
-  @include mixins.define-color('gray-1000', #11111b);
+  @include mixins.define-color('gray-600', #252525);
+  @include mixins.define-color('gray-700', #1a1a1a);
+  @include mixins.define-color('gray-800', #0a0a0a);
+  @include mixins.define-color('gray-900', #050505);
+  @include mixins.define-color('gray-1000', #000000);
 }
 
 @mixin light-color-palette {
@@ -94,12 +94,12 @@
   // Accent color is used in buttons, links, etc.
   // But it's not the only color used in the theme.
   // Colors might vary by purpose or subject.
-  --theme--color-accent: var(--color--teal);
-  --theme--color-accent-rgb: var(--color--teal-rgb);
-  --theme--color-accent-contrast: var(--color--teal-contrast);
-  --theme--color-accent-shade: var(--color--teal-shade);
-  --theme--color-accent-tint: var(--color--teal-tint);
-  --theme--color-accent-glow: var(--theme--glow-teal);
+  --theme--color-accent: var(--color--red);
+  --theme--color-accent-rgb: var(--color--red-rgb);
+  --theme--color-accent-contrast: var(--color--red-contrast);
+  --theme--color-accent-shade: var(--color--red-shade);
+  --theme--color-accent-tint: var(--color--red-tint);
+  --theme--color-accent-glow: var(--theme--glow-red);
 
   --theme--color-complementary: var(--color--mauve);
   --theme--color-complementary-rgb: var(--color--mauve-rgb);
@@ -190,7 +190,7 @@
 
   // Gradients
 
-  --theme--gradient-greenish: linear-gradient(to right, var(--color--teal), var(--color--sky));
+  --theme--gradient-greenish: linear-gradient(to right, var(--color--red), var(--color--maroon));
   --theme--gradient-pinkish: linear-gradient(to right, var(--color--pink), var(--color--mauve), var(--color--lavender));
   --theme--gradient-yellowish: linear-gradient(to right, var(--color--yellow), var(--color--peach));
   --theme--gradient-rainbow: linear-gradient(
@@ -266,19 +266,19 @@
 
   // #region Post Types
 
-  --theme--color-generic: var(--color--teal);
-  --theme--color-generic-rgb: var(--color--teal-rgb);
-  --theme--color-generic-contrast: var(--color--teal-contrast);
-  --theme--color-generic-shade: var(--color--teal-shade);
-  --theme--color-generic-tint: var(--color--teal-tint);
-  --theme--color-generic-glow: var(--theme--glow-teal);
+  --theme--color-generic: var(--color--red);
+  --theme--color-generic-rgb: var(--color--red-rgb);
+  --theme--color-generic-contrast: var(--color--red-contrast);
+  --theme--color-generic-shade: var(--color--red-shade);
+  --theme--color-generic-tint: var(--color--red-tint);
+  --theme--color-generic-glow: var(--theme--glow-red);
 
-  --theme--color-blog-post: var(--color--teal);
-  --theme--color-blog-post-rgb: var(--color--teal-rgb);
-  --theme--color-blog-post-contrast: var(--color--teal-contrast);
-  --theme--color-blog-post-shade: var(--color--teal-shade);
-  --theme--color-blog-post-tint: var(--color--teal-tint);
-  --theme--color-blog-post-glow: var(--theme--glow-teal);
+  --theme--color-blog-post: var(--color--red);
+  --theme--color-blog-post-rgb: var(--color--red-rgb);
+  --theme--color-blog-post-contrast: var(--color--red-contrast);
+  --theme--color-blog-post-shade: var(--color--red-shade);
+  --theme--color-blog-post-tint: var(--color--red-tint);
+  --theme--color-blog-post-glow: var(--theme--glow-red);
 
   --theme--color-cool-link: var(--color--blue);
   --theme--color-cool-link-rgb: var(--color--blue-rgb);
